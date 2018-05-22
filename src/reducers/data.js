@@ -1,12 +1,28 @@
-import { FETCH_DATA_FULFILLED, FETCH_DATA_REJECTED } from "../actions/actions";
+import { combineReducers } from "redux";
 
-export function data(state = [], action) {
-  switch (action.type) {
-    case FETCH_DATA_REJECTED:
-      return [];
-    case FETCH_DATA_FULFILLED:
-      return action.payload.city;
-    default:
-      return state;
-  }
+import { SEARCH_CITY_FULFILLED, SEARCH_CITY_REJECTED, SET_CITY_NAME } from "../actions/actions";
+
+function cityName(state = "", action) {
+    switch (action.type) {
+        case SET_CITY_NAME:
+            return action.payload;
+        default:
+            return state;
+    }
 }
+
+function cityData(state = {}, action) {
+    switch (action.type) {
+        case SEARCH_CITY_REJECTED:
+            return {};
+        case SEARCH_CITY_FULFILLED:
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+export const data = combineReducers({
+    cityName,
+    cityData,
+});

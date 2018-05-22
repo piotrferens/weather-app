@@ -1,15 +1,22 @@
-export const FETCH_DATA = "FETCH_DATA";
-export const fetchData = () => ({
-  type: FETCH_DATA
+export const SET_CITY_NAME = "SET_CITY_NAME";
+export const setCityName = payload => ({
+    type: SET_CITY_NAME,
+    payload,
 });
 
-export const FETCH_DATA_FULFILLED = "FETCH_DATA_FULFILLED";
-export const fetchDataFulfilled = payload => ({
-  type: FETCH_DATA_FULFILLED,
-  payload
+export const SEARCH_CITY = "SEARCH_CITY";
+export const searchCity = payload => ({
+    type: SEARCH_CITY,
+    payload,
 });
 
-export const FETCH_DATA_REJECTED = "FETCH_DATA_REJECTED";
-export const fetchDataRejected = () => ({
-  type: FETCH_DATA_REJECTED
+export const SEARCH_CITY_FULFILLED = "SEARCH_CITY_FULFILLED";
+export const searchCityFulfilled = payload => ({
+    type: SEARCH_CITY_FULFILLED,
+    payload,
+});
+
+export const SEARCH_CITY_REJECTED = "SEARCH_CITY_REJECTED";
+export const searchCityRejected = () => ({
+    type: SEARCH_CITY_REJECTED,
 });
